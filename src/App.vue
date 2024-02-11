@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Background />
+    <Inicio />
+    <!-- Otras secciones de tu aplicación aquí -->
   </div>
 </template>
 
+<script>
+
+export default {
+  components: {
+    // Agrega otros componentes según sea necesario
+  },
+};
+</script>
+
 <style>
+body{
+  background-color:#f6f6f6;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  color: #000000;
+ 
 }
 </style>
