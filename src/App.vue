@@ -6,13 +6,14 @@
 </template>
 
 <script>
-
+import Background from "@/components/Background.vue";
 import Inicio from "@/components/Inicio.vue";
 
 export default {
+  name: 'App',
   components: {
+    Background,
     Inicio,
-
   },
 };
 </script>
