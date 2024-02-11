@@ -8,8 +8,11 @@
 
 <script>
 
+import Inicio from "@/components/Inicio.vue"; // Asegúrate de ajustar la ruta
+
 export default {
   components: {
+    Inicio,
     // Agrega otros componentes según sea necesario
   },
 };
@@ -21,8 +24,13 @@ body{
 }
 
 #app {
-  text-align: center;
-  color: #000000;
- 
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 1920px; 
+    margin: 0 auto;
+  }
+
 </style>

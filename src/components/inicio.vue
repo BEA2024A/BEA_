@@ -17,11 +17,11 @@
 
       <!-- Botón de Login -->
       <div class="login-btn">
-        <button>Login</button>
+        <button>Iniciar sesión</button>
       </div>
     </nav>
 
-      <!-- Contenido de la Página -->
+    <!-- Contenido de la Página -->
     <div class="page-content">
       <router-view></router-view>
 
@@ -37,7 +37,7 @@
           <div class="welcome-text">
             <h2 class="welcome-heading">BIENVENIDO AL SERVICIO DE ACOMPAÑAMIENTO PSICOLÓGICO</h2>
             <p>
-              Descubre un espacio seguro para cuidar tu bienestar emocional. 
+              Descubre un espacio seguro para cuidar tu bienestar emocional.
               Nuestro equipo de psicólogos está aquí para brindarte apoyo en tu camino hacia la salud mental.
             </p>
           </div>
@@ -46,68 +46,36 @@
     </div>
 
     <!-- Sección de Equipo de Psicólogos -->
-<section class="team-section">
-  
-  <div class="psychologist-profile">
-    <div class="profile-details">
-      <h3>NUESTRO EQUIPO</h3>
-    </div>
-  </div>
+    <section class="team-section">
+      <div class="psychologist-profile">
+        <div class="profile-details">
+          <h3>NUESTRO EQUIPO</h3>
+        </div>
+      </div>
 
-  <!-- Perfiles -->
-  <div class="psychologist-profile">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Perfil Psicólogo 1">
-    <div class="profile-details">
-      <h3>Nombre del Psicólogo 1</h3>
-      <p>Experiencia Académica y Profesional</p>
-      <p>Áreas de Especialización: Ansiedad, Depresión, Relaciones</p>
-    </div>
-  </div>
+      <!-- Perfiles -->
+      <div v-for="psicologo in psicologos" :key="psicologo.id" class="psychologist-profile">
+        <img :src="psicologo.imagen" :alt="'Perfil ' + psicologo.nombre">
+        <div class="profile-details">
+          <h3>{{ psicologo.nombre }}</h3>
+          <p>{{ psicologo.experiencia }}</p>
+          <p>{{ psicologo.especializacion }}</p>
+        </div>
+      </div>
 
-  <div class="psychologist-profile">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Perfil Psicólogo 2">
-    <div class="profile-details">
-      <h3>Nombre del Psicólogo 2</h3>
-      <p>Experiencia Académica y Profesional</p>
-      <p>Áreas de Especialización: Ansiedad, Depresión, Relaciones</p>
-    </div>
-  </div>
+    </section>
 
-  <div class="psychologist-profile">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Perfil Psicólogo 3">
-    <div class="profile-details">
-      <h3>Nombre del Psicólogo 3</h3>
-      <p>Experiencia Académica y Profesional</p>
-      <p>Áreas de Especialización: Ansiedad, Depresión, Relaciones</p>
-    </div>
-  </div>
+     <!-- Sección de Botones -->
+     <section class="button-section">
+      <button class="button-card" @click="redirectTo('/primera-cita')">Primera Cita</button>
+      <button class="button-card" @click="redirectTo('/seguimiento')">Seguimiento</button>
+      <button class="button-card" @click="redirectTo('/horario')">Horario</button>
+      <button class="button-card" @click="redirectTo('/autoayuda')">Autoayuda</button>
+    </section>
 
-  <div class="psychologist-profile">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Perfil Psicólogo 4">
-    <div class="profile-details">
-      <h3>Nombre del Psicólogo 4</h3>
-      <p>Experiencia Académica y Profesional</p>
-      <p>Áreas de Especialización: Ansiedad, Depresión, Relaciones</p>
-    </div>
-  </div>
-  
-  <div class="psychologist-profile">
-    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Perfil Psicólogo 5">
-    <div class="profile-details">
-      <h3>Nombre del Psicólogo 5</h3>
-      <p>Experiencia Académica y Profesional</p>
-      <p>Áreas de Especialización: Ansiedad, Depresión, Relaciones</p>
-    </div>
-  </div>
-  
-
-  
-</section>
-
-
-<!-- Pie de Página -->
-<br>
-<br>
+    <!-- Pie de Página -->
+    <br>
+    <br>
     <footer class="footer">
       <div class="footer-content">
         <!-- Imagen a la derecha -->
@@ -117,7 +85,7 @@
 
         <!-- Información de contacto -->
         <div class="footer-contact">
-          <button class="footer-button" onclick="window.location.href='https://maps.app.goo.gl/te3G28WuD56cTgyHA'" target="_blank" >
+          <button class="footer-button" @click="openMap" target="_blank">
             <strong>Dirección:</strong> Blvd. Guadalupe Hinojosa de Murat No. 1100.<br>San Raymundo Jalpan, Oaxaca C.P. 71248.
           </button>
           <p><strong>Teléfono:</strong> (951) 50-1-62-50<br>Lada sin costo: 800-737-26-24<br>E-mail: orientacionpsicologica.uao@anahuac.mx</p>
@@ -125,22 +93,22 @@
 
         <!-- Enlaces a Aviso de Privacidad y Compendio Reglamentario como botones -->
         <div class="footer-buttons">
-          <button class="footer-button" onclick="window.location.href='https://www.anahuac.mx/oaxaca/aviso-privacidad'">Aviso de Privacidad</button>
-          <button class="footer-button" onclick="window.location.href='https://www.anahuac.mx/oaxaca/compendio-reglamentario'">Compendio Reglamentario</button>
+          <button class="footer-button" @click="openLink('https://www.anahuac.mx/oaxaca/aviso-privacidad')">Aviso de Privacidad</button>
+          <button class="footer-button" @click="openLink('https://www.anahuac.mx/oaxaca/compendio-reglamentario')">Compendio Reglamentario</button>
         </div>
 
         <!-- Botones de redes sociales como botones -->
         <div class="footer-social-buttons">
-          <button class="footer-button" onclick="window.location.href='https://www.facebook.com/anahuacoaxaca/'" target="_blank">
+          <button class="footer-button" @click="openLink('https://www.facebook.com/anahuacoaxaca/')" target="_blank">
             <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/redFacebook_1.png" alt="Facebook">
           </button>
-          <button class="footer-button" onclick="window.location.href='https://www.instagram.com/anahuacoaxaca'" target="_blank">
+          <button class="footer-button" @click="openLink('https://www.instagram.com/anahuacoaxaca')" target="_blank">
             <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/redInstagram.png" alt="Instagram">
           </button>
-          <button class="footer-button" onclick="window.location.href='https://twitter.com/anahuacoaxaca'" target="_blank">
+          <button class="footer-button" @click="openLink('https://twitter.com/anahuacoaxaca')" target="_blank">
             <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/redTwitter.png" alt="Twitter">
           </button>
-          <button class="footer-button" onclick="window.location.href='https://www.youtube.com/channel/UCk5xAk91c-F_lNKn6ceDVZQ'" target="_blank">
+          <button class="footer-button" @click="openLink('https://www.youtube.com/channel/UCk5xAk91c-F_lNKn6ceDVZQ')" target="_blank">
             <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/redYoutube.png" alt="Youtube">
           </button>
         </div>
@@ -149,19 +117,77 @@
   </div>
 </template>
 
-<style>
-/* Estilos específicos de la barra de navegación y otros ajustes */
+<script>
+export default {
+
+  name: 'InicioBea',
+
+  data() {
+    return {
+      psicologos: [
+        {
+       
+          nombre: 'Nombre del Psicólogo 1',
+          imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+          experiencia: 'Experiencia Académica y Profesional',
+          especializacion: 'Áreas de Especialización: Ansiedad, Depresión, Relaciones'
+        },
+        {
+      
+          nombre: 'Nombre del Psicólogo 2',
+          imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+          experiencia: 'Experiencia Académica y Profesional',
+          especializacion: 'Áreas de Especialización: Ansiedad, Depresión, Relaciones'
+        },
+        {
+         
+          nombre: 'Nombre del Psicólogo 3',
+          imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+          experiencia: 'Experiencia Académica y Profesional',
+          especializacion: 'Áreas de Especialización: Ansiedad, Depresión, Relaciones'
+        },
+        {
+         
+         nombre: 'Nombre del Psicólogo 4',
+         imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+         experiencia: 'Experiencia Académica y Profesional',
+         especializacion: 'Áreas de Especialización: Ansiedad, Depresión, Relaciones'
+       },
+       {
+         
+         nombre: 'Nombre del Psicólogo 5',
+         imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
+         experiencia: 'Experiencia Académica y Profesional',
+         especializacion: 'Áreas de Especialización: Ansiedad, Depresión, Relaciones'
+       },
+      ]
+    };
+  },
+  methods: {
+    openMap() {
+      window.location.href = 'https://maps.app.goo.gl/te3G28WuD56cTgyHA';
+    },
+    openLink(url) {
+      window.location.href = url;
+    }
+  }
+};
+</script>
+
+<style scoped>
+
+/* Barra de Navegación */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px;
-  background-color: black; /* Cambiado a color negro */
-  color: white; /* Cambiado el color del texto a blanco */
+  padding: 15px;
+  background-color: black;
+  color: white;
 }
 
 .logo img {
-  max-height: 40px; /* Ajusta el tamaño del logo según sea necesario */
+  max-height: 40px;
 }
 
 .nav-sections {
@@ -169,18 +195,18 @@
 }
 
 .nav-link {
-  margin-right: 30px; /* Espaciado mayor entre las secciones */
-  color: white; /* Color del texto de las secciones */
-  text-decoration: none; /* Elimina la subrayado de los enlaces */
-  transition: color 0.3s ease; /* Transición suave para el color del texto */
+  margin-right: 30px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #d45c37; /* Color diferente al pasar el ratón */
+  color: #d45c37;
 }
 
 .login-btn button {
-  background-color: #d45c37; /* Color de fondo del botón de login */
+  background-color: #d45c37;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -190,33 +216,128 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  transition: background-color 0.3s ease;
 }
 
 .login-btn button:hover {
-  background-color: #a03722; /* Cambiar color al pasar el ratón */
+  background-color: #a03722;
 }
 
-/* Estilos para el contenido de la página */
+/* Contenido de la Página */
 .page-content {
-  padding: 30px; /* Ajusta el espacio alrededor del contenido */
+  padding: 30px;
 }
 
-/* Estilos para el pie de página (puedes ajustar según tus necesidades) */
+/* Sección de Bienvenida */
+.welcome-section {
+  margin-top: 20px;
+}
+
+.welcome-box {
+  background-color: #ff5900;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-image img {
+  max-width: 100%;
+}
+
+.welcome-heading {
+  font-weight: bold;
+  color: #f6f6f6;
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Sección de Equipo de Psicólogos */
+.team-section {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #423a38;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.psychologist-profile {
+  flex: 0 0 calc(48% - 20px);
+  margin-bottom: 20px;
+  background-color: #ff5900;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.psychologist-profile:hover {
+  background-color: #f6f6f6;
+  color: black;
+}
+
+.psychologist-profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Sección de Botones */
+.button-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.button-card {
+  flex: 0 0 calc(23% - 10px);
+  background-color: #ff5900;
+  color: white;
+  border: none;
+  padding: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.button-card:hover {
+  background-color: #423a38;
+}
+
+/* Pie de Página */
 .footer {
-  background-color: black; /* Cambiado a color negro */
+  background-color: black;
   color: white;
   padding: 30px;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
 }
 
 .footer-right img {
-  max-height: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+  max-height: 80px;
 }
 
 .footer-contact p {
@@ -229,17 +350,17 @@
 }
 
 .footer-button {
-  background-color: #000000; /* Color de fondo del botón */
+  background-color: #000000;
   color: white;
   border: none;
   text-align: center;
   cursor: pointer;
   border-radius: 5px;
-  margin-bottom: 10px; /* Espaciado entre los botones */
+  margin-bottom: 10px;
 }
 
 .footer-social-buttons img {
-  max-height: 35px; /* Ajusta el tamaño de las imágenes de redes sociales según sea necesario */
+  max-height: 35px;
   margin-right: 5px;
 }
 
@@ -249,96 +370,5 @@
   padding: 0;
   cursor: pointer;
 }
-
-
-/* Estilos para la sección de Bienvenida */
-.welcome-section {
-  margin-top: 0px;
-}
-
-.welcome-box {
-  background-color: #ff5900; /* Color naranja */
-  padding: 20px;
-  border-radius: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.welcome-image img {
-  max-width: 100%; /* Ajusta la imagen al tamaño del contenedor */
-}
-
-.welcome-heading {
-  
-  font-weight: bold; /* Negrita */
-  color: #f6f6f6; /* Color blanco */
-  margin-bottom: 10px; /* Espaciado inferior */
-}
-
-.welcome-text {
-  max-width: 65%; /* Ajusta el ancho del texto según sea necesario */
-}
-
-.welcome-text h2 {
-  color: #f6f6f6; /* Color blanco */
-}
-
-.welcome-text p {
-  color: #231f20; /* Color negro */
-}
-
-/* Estilos para la sección de Equipo de Psicólogos */
-.team-section {
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si no hay espacio suficiente */
-  justify-content: space-between; /* Distribuye los elementos horizontalmente */
-  background-color: #423a38; /* Agrega el fondo detrás de las tarjetas */
-  padding: 20px; /* Ajusta el espaciado del fondo */
-  border-radius: 10px; /* Añade bordes redondeados al fondo */
-}
-
-.psychologist-profile {
-  flex: 0 0 calc(48% - 20px); /* Ancho del 48% con un margen más amplio */
-  margin-bottom: 20px;
-  background-color: #ff5900; /* Color de fondo inicial de las tarjetas */
-  transition: background-color 0.3s ease; /* Transición suave */
-  display: flex; /* Para centrar la imagen y los detalles verticalmente */
-  align-items: center; /* Para centrar la imagen y los detalles verticalmente */
-  padding: 20px; /* Añade un margen general al recuadro de las tarjetas */
-  border-radius: 5px; /* Añade bordes redondeados a las tarjetas */
-}
-
-.psychologist-profile:hover {
-  background-color: white; /* Cambio de color al pasar el ratón */
-}
-.psychologist-profile:hover h3 {
-  color: black; /* Cambia el color del h3 al pasar el ratón */
-}
-
-.psychologist-profile img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-  margin-left: auto; /* Centra la imagen ajustando el margen izquierdo */
-}
-
-.profile-details h3 {
-  margin-bottom: 5px;
-  font-weight: bold; /* Pone en negritas el nombre del psicólogo */
-  color: #f6f6f6; /* Color blanco para el texto */
-}
-
-.team-message {
-  margin-top: 30px;
-}
-
-.team-message h3 {
-  color: #ff5900;
-}
-
-
 
 </style>
