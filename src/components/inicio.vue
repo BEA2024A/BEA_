@@ -1,13 +1,10 @@
 <template>
   <div>
-    <!-- Barra de Navegación -->
     <nav class="navbar">
-      <!-- Logo -->
       <div class="logo">
         <img src="https://i.ibb.co/TkHLsmX/anahuac-oaxaca.png" alt="Logo Anáhuac">
       </div>
 
-      <!-- Secciones -->
       <div class="nav-sections">
         <router-link to="/primera-cita" class="nav-link">Primera Cita</router-link>
         <router-link to="/seguimiento" class="nav-link">Seguimiento</router-link>
@@ -15,25 +12,21 @@
         <router-link to="/autoayuda" class="nav-link">Autoayuda</router-link>
       </div>
 
-      <!-- Botón de Login -->
       <div class="login-btn">
         <button>Iniciar sesión</button>
       </div>
     </nav>
 
-    <!-- Contenido de la Página -->
     <div class="page-content">
       <router-view></router-view>
 
-      <!-- Sección de Bienvenida -->
       <section class="welcome-section">
         <div class="welcome-box">
-          <!-- Imagen -->
+>
           <div class="welcome-image">
             <img src="https://merida.anahuac.mx/hubfs/apreu-website/ilustraciones/ama_vector_psi.png" alt="Ilustración Psicología">
           </div>
 
-          <!-- Texto -->
           <div class="welcome-text">
             <h2 class="welcome-heading">BIENVENIDO AL SERVICIO DE ACOMPAÑAMIENTO PSICOLÓGICO</h2>
             <p>
@@ -45,7 +38,6 @@
       </section>
     </div>
 
-    <!-- Sección de Equipo de Psicólogos -->
     <section class="team-section">
       <div class="psychologist-profile">
         <div class="profile-details">
@@ -53,7 +45,6 @@
         </div>
       </div>
 
-      <!-- Perfiles -->
       <div v-for="psicologo in psicologos" :key="psicologo.id" class="psychologist-profile">
         <img :src="psicologo.imagen" :alt="'Perfil ' + psicologo.nombre">
         <div class="profile-details">
@@ -65,7 +56,6 @@
 
     </section>
 
-     <!-- Sección de Botones -->
      <section class="button-section">
       <button class="button-card" @click="redirectTo('/primera-cita')">Primera Cita</button>
       <button class="button-card" @click="redirectTo('/seguimiento')">Seguimiento</button>
@@ -73,17 +63,15 @@
       <button class="button-card" @click="redirectTo('/autoayuda')">Autoayuda</button>
     </section>
 
-    <!-- Pie de Página -->
     <br>
     <br>
     <footer class="footer">
       <div class="footer-content">
-        <!-- Imagen a la derecha -->
+
         <div class="footer-right">
           <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/Inicial.png" alt="Anáhuac Logo">
         </div>
 
-        <!-- Información de contacto -->
         <div class="footer-contact">
           <button class="footer-button" @click="openMap" target="_blank">
             <strong>Dirección:</strong> Blvd. Guadalupe Hinojosa de Murat No. 1100.<br>San Raymundo Jalpan, Oaxaca C.P. 71248.
@@ -91,13 +79,11 @@
           <p><strong>Teléfono:</strong> (951) 50-1-62-50<br>Lada sin costo: 800-737-26-24<br>E-mail: orientacionpsicologica.uao@anahuac.mx</p>
         </div>
 
-        <!-- Enlaces a Aviso de Privacidad y Compendio Reglamentario como botones -->
         <div class="footer-buttons">
           <button class="footer-button" @click="openLink('https://www.anahuac.mx/oaxaca/aviso-privacidad')">Aviso de Privacidad</button>
           <button class="footer-button" @click="openLink('https://www.anahuac.mx/oaxaca/compendio-reglamentario')">Compendio Reglamentario</button>
         </div>
 
-        <!-- Botones de redes sociales como botones -->
         <div class="footer-social-buttons">
           <button class="footer-button" @click="openLink('https://www.facebook.com/anahuacoaxaca/')" target="_blank">
             <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/redFacebook_1.png" alt="Facebook">
@@ -176,7 +162,6 @@ export default {
 
 <style scoped>
 
-/* Barra de Navegación */
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -223,12 +208,10 @@ export default {
   background-color: #a03722;
 }
 
-/* Contenido de la Página */
 .page-content {
   padding: 30px;
 }
 
-/* Sección de Bienvenida */
 .welcome-section {
   margin-top: 20px;
 }
@@ -258,7 +241,6 @@ export default {
   text-align: center;
 }
 
-/* Sección de Equipo de Psicólogos */
 .team-section {
   margin-top: 20px;
   display: flex;

@@ -2,18 +2,17 @@
   <div id="app">
     <Background />
     <Inicio />
-    <!-- Otras secciones de tu aplicación aquí -->
   </div>
 </template>
 
 <script>
 
-import Inicio from "@/components/Inicio.vue"; // Asegúrate de ajustar la ruta
+import Inicio from "@/components/Inicio.vue";
 
 export default {
   components: {
     Inicio,
-    // Agrega otros componentes según sea necesario
+
   },
 };
 </script>
