@@ -150,6 +150,9 @@ export default {
     };
   },
   methods: {
+    redirectTo(route) {
+      console.log('Redirigiendo a:', route);
+    },
     openMap() {
       window.location.href = 'https://maps.app.goo.gl/te3G28WuD56cTgyHA';
     },
@@ -276,7 +279,6 @@ export default {
   margin-bottom: 10px;
 }
 
-/* Sección de Botones */
 .button-section {
   display: flex;
   flex-wrap: wrap;
@@ -304,7 +306,6 @@ export default {
   background-color: #423a38;
 }
 
-/* Pie de Página */
 .footer {
   background-color: black;
   color: white;
