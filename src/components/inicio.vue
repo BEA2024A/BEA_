@@ -12,9 +12,9 @@
         <router-link to="/autoayuda" class="enlace-navegacion">Autoayuda</router-link>
       </div>
 
-      <div class="boton-inicio-sesion">
-        <button @click="abrirEnlace('/inicio-sesion')">Iniciar sesión</button>
-      </div>
+      <div class="login-btn">
+        <button class="button-card" @click="redirectTo('/iniciar-sesion')">Iniciar Sesión</button>
+    </div>
     </nav>
 
     <div class="contenido-pagina">
@@ -133,6 +133,10 @@ export default {
     this.detenerTemporizadorBanner();
   },
   methods: {
+    redirectTo(route) {
+      this.$router.push(route);
+      console.log('Redirigiendo a:', route);
+    },
     abrirMapa() {
       window.location.href = 'https://maps.app.goo.gl/te3G28WuD56cTgyHA';
     },
